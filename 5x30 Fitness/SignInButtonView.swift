@@ -1,0 +1,68 @@
+//
+//  authButton.swift
+//  5x30 Fitness
+//
+//  Created by Егор Кириченко on 09.05.2025.
+//
+
+import SwiftUI
+
+struct SignInButton: View {
+    let SignInTitle: String
+    let CreateUserTitle: String
+    let SignIn: () -> Void
+    let CreateUser: () -> Void
+    
+    var body: some View {
+        VStack (spacing: 10){
+            // SIGN IN BUTTON
+            Button(action: SignIn){
+                Text(SignInTitle)
+                    .multilineTextAlignment(.center)
+                    .frame(width: 280.0, height: 24.0)
+                    .foregroundStyle(Color.white)
+                    .padding(.vertical, 9.0)
+                    .padding(.horizontal, 10)
+                    .font(
+                        Font.custom(
+                            "Myanmar Khyay",
+                            size: 18
+                        )
+                    )
+            }
+            .background(Color("baseColor"))
+            .cornerRadius(12)
+            
+            // CREATE USER BUTTON
+            Button(action: CreateUser) {
+                Text(CreateUserTitle)
+                    .font(
+                        Font.custom(
+                            "Myanmar Khyay",
+                            size: 12
+                        )
+                    )
+                    .multilineTextAlignment(.center)
+                    .underline()
+            }
+        }
+    }
+}
+
+//TODO: rplace this func with auth and creating new user
+func someSignIn() -> Void {
+    print("USER SIGNED IN")
+}
+func someUserCreation() -> Void {
+    print("TAB SWITCHED TO CREATE NEW USER")
+}
+
+#Preview{
+    SignInButton(
+        SignInTitle: "Sign in",
+        CreateUserTitle: "Create Account",
+        SignIn: someSignIn,
+        CreateUser: someUserCreation
+    )
+    
+}
