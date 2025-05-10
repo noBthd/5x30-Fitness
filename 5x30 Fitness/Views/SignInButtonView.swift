@@ -9,15 +9,13 @@ import SwiftUI
 
 struct SignInButton: View {
     let SignInTitle: String
-    let CreateUserTitle: String
+//    let CreateUserTitle: String
     
     let SignIn: (String, String) -> Void
     @Binding var Email: String
     @Binding var Password: String
     
-    let CreateUser: () -> Void
-    
-    
+//    let CreateUser: () -> Void
     
     var body: some View {
         VStack (spacing: 10){
@@ -42,17 +40,17 @@ struct SignInButton: View {
             .cornerRadius(12)
             
             // CREATE USER BUTTON
-            Button(action: CreateUser) {
-                Text(CreateUserTitle)
-                    .font(
-                        Font.custom(
-                            "Myanmar Khyay",
-                            size: 12
-                        )
-                    )
-                    .multilineTextAlignment(.center)
-                    .underline()
-            }
+//            Button(action: CreateUser) {
+//                Text(CreateUserTitle)
+//                    .font(
+//                        Font.custom(
+//                            "Myanmar Khyay",
+//                            size: 12
+//                        )
+//                    )
+//                    .multilineTextAlignment(.center)
+//                    .underline()
+//            }
         }
     }
 }

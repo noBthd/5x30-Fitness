@@ -12,24 +12,19 @@ struct SignInView: View {
     @State private var password: String = ""
     
     var body : some View {
-        VStack(spacing: 25){
-            VStack(spacing: 35) {
-                InputFields
-                
-                SignInButton(
-                    SignInTitle: "Sign In",
-                    CreateUserTitle: "Create Account",
-                    SignIn: signIn,
-                    Email: $email,
-                    Password: $password,
-                    CreateUser: goToUserCreation
+        NavigationStack {
+            VStack(spacing: 25){
+                VStack(spacing: 35) {
+                    InputFields
+                    
+                    SignButtons
+                }
+                OAuth(
+                    AppleAuth: appleAuth,
+                    GoogleAuth: googleAuth,
+                    GithubAuth: githubAuth
                 )
             }
-            OAuth(
-                AppleAuth: appleAuth,
-                GoogleAuth: googleAuth,
-                GithubAuth: githubAuth
-            )
         }
     }
     
@@ -39,6 +34,24 @@ struct SignInView: View {
         VStack(spacing: 10) {
             EmailInput(Email: $email)
             PasswordInput(Password: $password)
+        }
+    }
+    
+    private var SignButtons : some View {
+        VStack(spacing: 10) {
+            SignInButton(
+                SignInTitle: "Sign In",
+                SignIn: signIn,
+                Email: $email,
+                Password: $password
+            )
+            NavigationLink("Create Account", destination: SignUpView())
+                .font(
+                    Font.custom(
+                        "Myanmar Khyay",
+                        size: 12
+                    )
+                )
         }
     }
 }

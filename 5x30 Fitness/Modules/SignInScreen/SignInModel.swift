@@ -27,8 +27,3 @@ func signIn(
     _ password: String) -> Void {
         print("USER SIGNED IN: email: \(email), password: \(password)")
 }
-
-func goToUserCreation() -> Void {
-    SignUpView()
-    print("REDIRECTED TO REGISTRATION PAGE")
-}
