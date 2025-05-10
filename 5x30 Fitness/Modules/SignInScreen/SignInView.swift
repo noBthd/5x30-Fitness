@@ -8,15 +8,36 @@
 import SwiftUI
 
 struct SignInView: View {
-    // some data
+    @State private var email = ""
+    @State private var password = ""
     
     var body : some View {
-        SignInButton(
-            SignInTitle: "Sign In",
-            CreateUserTitle: "Create Account",
-            SignIn: tmpFunc,
-            CreateUser: tmpFunc
-        )
+        VStack(spacing: 25){
+            VStack(spacing: 35) {
+                InputFields
+                
+                SignInButton(
+                    SignInTitle: "Sign In",
+                    CreateUserTitle: "Create Account",
+                    SignIn: tmpFunc,
+                    CreateUser: tmpFunc
+                )
+            }
+            OAuth(
+                AppleAuth: tmpFunc,
+                GoogleAuth: tmpFunc,
+                GithubAuth: tmpFunc
+            )
+        }
+    }
+}
+
+// SUBVIEWS
+
+private var InputFields : some View {
+    VStack(spacing: 10) {
+        EmailInput()
+        PasswordInput()
     }
 }
 
