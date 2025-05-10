@@ -10,13 +10,21 @@ import SwiftUI
 struct SignInButton: View {
     let SignInTitle: String
     let CreateUserTitle: String
-    let SignIn: () -> Void
+    
+    let SignIn: (String, String) -> Void
+    @Binding var Email: String
+    @Binding var Password: String
+    
     let CreateUser: () -> Void
+    
+    
     
     var body: some View {
         VStack (spacing: 10){
             // SIGN IN BUTTON
-            Button(action: SignIn){
+            Button(action: {
+                SignIn(Email, Password)
+            }) {
                 Text(SignInTitle)
                     .multilineTextAlignment(.center)
                     .frame(width: 280.0, height: 24.0)
@@ -49,20 +57,8 @@ struct SignInButton: View {
     }
 }
 
-//TODO: rplace this func with auth and creating new user
-//func someSignIn() -> Void {
-//    print("USER SIGNED IN")
-//}
-//func someUserCreation() -> Void {
-//    print("TAB SWITCHED TO CREATE NEW USER")
-//}
+//PREVIEWS
 
-//#Preview{
-//    SignInButton(
-//        SignInTitle: "Sign in",
-//        CreateUserTitle: "Create Account",
-//        SignIn: someSignIn,
-//        CreateUser: someUserCreation
-//    )
-//    
-//}
+#Preview{
+    
+}

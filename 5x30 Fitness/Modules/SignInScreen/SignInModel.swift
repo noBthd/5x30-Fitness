@@ -22,8 +22,10 @@ func githubAuth() -> Void {
     print("REDIRECTED TO GITHUB AUTH")
 }
 
-func signIn() -> Void {
-    print("USER SIGNED IN")
+func signIn(
+    _ email: String,
+    _ password: String) -> Void {
+        print("USER SIGNED IN: email: \(email), password: \(password)")
 }
 
 func goToUserCreation() -> Void {

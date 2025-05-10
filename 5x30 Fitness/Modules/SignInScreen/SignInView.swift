@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct SignInView: View {
-    @State private var email = ""
-    @State private var password = ""
+    @State private var email: String = ""
+    @State private var password: String = ""
     
     var body : some View {
         VStack(spacing: 25){
@@ -19,7 +19,9 @@ struct SignInView: View {
                 SignInButton(
                     SignInTitle: "Sign In",
                     CreateUserTitle: "Create Account",
-                    SignIn: signIn(),
+                    SignIn: signIn,
+                    Email: $email,
+                    Password: $password,
                     CreateUser: goToUserCreation
                 )
             }
