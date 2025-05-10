@@ -11,15 +11,6 @@ struct Bar : View {
     
     var body : some View {
         ZStack(alignment: .bottom) {
-            // BLUR TEST
-            Rectangle()
-                .fill(Color.red)
-                .frame(
-                    width: 50,
-                    height: 50
-                )
-                .padding(.horizontal, 170)
-            
             VStack() {
                 Spacer()
                 
@@ -37,65 +28,31 @@ struct Bar : View {
             
             HStack(spacing: 75) {
                 // STATISTIC BUTTON
-                Image("satImg")
-                    .resizable()
-                    .frame(
-                        width: 30,
-                        height: 30
-                    )
-                    .padding(.top, 10)
-                    .padding(.horizontal, 10)
-                
-                Text("Statistic")
-                    .font(
-                        Font.custom(
-                            "Myanmar Khyay",
-                            size: 8
-                        )
-                    )
-                    .frame(
-                        width: 35,
-                        height: 11.2
-                    )
-                    .foregroundColor(Color("navigationColor"))
+                BarButton(
+                    notPickedImage: "statImg",
+                    pickedImage: "pickedStatImg",
+                    sectionName: "Statistic",
+                    picked: true,
+                    buttonAction: tmpFunc
+                )
                 
                 // FITNESS BUTTON
-                Text("Fitness")
-                    .font(
-                        Font.custom(
-                            "Myanmar Khyay",
-                            size: 8
-                        )
-                    )
-                    .frame(
-                        width: 32,
-                        height: 8.8
-                    )
-                    .foregroundColor(Color("navigationColor"))
+                BarButton(
+                    notPickedImage: "fitImg",
+                    pickedImage: "pickedFitImg",
+                    sectionName: "Fitness",
+                    picked: false,
+                    buttonAction: tmpFunc
+                )
                 
                 // BUTTON
-                VStack(spacing: 0) {
-                    Rectangle()
-                        .fill(Color("navigationColor"))
-                        .cornerRadius(30)
-                        .frame(
-                            width: 30,
-                            height: 30
-                        )
-                    
-                    Text("Button")
-                        .font(
-                            Font.custom(
-                                "Myanmar Khyay",
-                                size: 8
-                            )
-                        )
-                        .frame(
-                            width: 28,
-                            height: 8
-                        )
-                        .foregroundColor(Color("navigationColor"))
-                }
+                BarButton(
+                    notPickedImage: "statImg",
+                    pickedImage: "pickedStatImg",
+                    sectionName: "Statistic",
+                    picked: false,
+                    buttonAction: tmpFunc
+                )
             }
         }
     }
