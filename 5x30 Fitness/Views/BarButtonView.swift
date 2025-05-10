@@ -51,6 +51,10 @@ struct BarButton : View {
                         .foregroundColor(Color(buttonColor))
                 }
             }
+            .frame(
+                width: 30,
+                height: 39
+            )
         }
     }
 }
