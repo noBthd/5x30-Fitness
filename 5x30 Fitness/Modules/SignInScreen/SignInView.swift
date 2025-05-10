@@ -19,14 +19,14 @@ struct SignInView: View {
                 SignInButton(
                     SignInTitle: "Sign In",
                     CreateUserTitle: "Create Account",
-                    SignIn: tmpFunc,
-                    CreateUser: tmpFunc
+                    SignIn: signIn,
+                    CreateUser: goToUserCreation
                 )
             }
             OAuth(
-                AppleAuth: tmpFunc,
-                GoogleAuth: tmpFunc,
-                GithubAuth: tmpFunc
+                AppleAuth: appleAuth,
+                GoogleAuth: googleAuth,
+                GithubAuth: githubAuth
             )
         }
     }
@@ -40,6 +40,8 @@ private var InputFields : some View {
         PasswordInput()
     }
 }
+
+// PREVIEWS
 
 #Preview {
     SignInView()
