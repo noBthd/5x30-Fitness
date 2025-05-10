@@ -9,12 +9,16 @@ import SwiftUI
 
 struct SignUpButton: View {
     let SignUpTitle: String
-    let SignUp: () -> Void
+    let SignUp: (String, String) -> Void
+    @Binding var Email: String
+    @Binding var Password: String
     
     var body: some View {
         VStack (spacing: 10){
             // SIGN UP BUTTON
-            Button(action: SignUp) {
+            Button(action: {
+                SignUp(Email, Password)
+            }) {
                 Text(SignUpTitle)
                     .multilineTextAlignment(.center)
                     .frame(width: 280.0, height: 24.0)
@@ -34,14 +38,9 @@ struct SignUpButton: View {
     }
 }
 
-//TODO: rplace this func with registration
-func someSignUp() -> Void {
-    print("USER SIGNED UP")
-}
-
 #Preview{
-    SignUpButton(
-        SignUpTitle: "Sign Up",
-        SignUp: someSignUp
-    )
+//    SignUpButton(
+//        SignUpTitle: "Sign Up",
+//        SignUp: someSignUp
+//    )
 }

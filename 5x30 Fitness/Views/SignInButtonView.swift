@@ -23,7 +23,7 @@ struct SignInButton: View {
         VStack (spacing: 10){
             // SIGN IN BUTTON
             Button(action: {
-                SignIn(Email, Password)
+                signIn(Email, Password)
             }) {
                 Text(SignInTitle)
                     .multilineTextAlignment(.center)

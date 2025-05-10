@@ -29,5 +29,6 @@ func signIn(
 }
 
 func goToUserCreation() -> Void {
+    SignUpView()
     print("REDIRECTED TO REGISTRATION PAGE")
 }
