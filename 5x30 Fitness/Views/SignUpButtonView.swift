@@ -39,8 +39,5 @@ struct SignUpButton: View {
 }
 
 #Preview{
-//    SignUpButton(
-//        SignUpTitle: "Sign Up",
-//        SignUp: someSignUp
-//    )
+
 }
