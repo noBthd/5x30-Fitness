@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EmailInput : View {
-    @State private var text: String=""
+    @State private var email: String=""
     
     var body : some View {
         VStack (spacing: 2) {
@@ -38,16 +38,17 @@ struct EmailInput : View {
                 
                 TextField(
                     "Email",
-                    text: $text
-                ) {
-                    
-                }
+                    text: $email
+                )
                 .padding(.horizontal)
             }
             .frame(width: 300, height: 56)
+
         }
     }
 }
+
+//TODO: add getter of email
 
 #Preview {
     EmailInput()
