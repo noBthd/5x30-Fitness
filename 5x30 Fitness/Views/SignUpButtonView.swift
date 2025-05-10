@@ -14,7 +14,7 @@ struct SignUpButton: View {
     var body: some View {
         VStack (spacing: 10){
             // SIGN UP BUTTON
-            Button(action: SignUp){
+            Button(action: SignUp) {
                 Text(SignUpTitle)
                     .multilineTextAlignment(.center)
                     .frame(width: 280.0, height: 24.0)

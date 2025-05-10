@@ -8,18 +8,43 @@
 import SwiftUI
 
 struct EmailInput : View {
+    @State private var text: String=""
     
     var body : some View {
-        VStack (spacing: 2){
+        VStack (spacing: 2) {
             Text("Email")
+                .padding(.trailing, 258)
+                .frame(
+                    width: 290,
+                    height: 24
+                )
                 .multilineTextAlignment(.leading)
-                .frame(width: 290)
                 .foregroundStyle(Color.white)
+                .font(
+                    Font.custom(
+                        "Myanmar Khyay",
+                        size: 12
+                    )
+                )
             
-            Rectangle()
-                .frame(width: 300.0, height: 56.0)
-                .background(Color("BaseColor"))
-                .cornerRadius(12)
+            ZStack(alignment: .leading){
+                Rectangle()
+                    .fill(Color("baseColor"))
+                    .frame(
+                        width: 300.0,
+                        height: 56.0
+                    )
+                    .cornerRadius(12)
+                
+                TextField(
+                    "Email",
+                    text: $text
+                ) {
+                    
+                }
+                .padding(.horizontal)
+            }
+            .frame(width: 300, height: 56)
         }
     }
 }
