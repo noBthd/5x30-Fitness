@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PasswordInput : View {
-    @State private var password: String=""
+    @Binding var Password: String
     
     var body : some View {
         VStack (spacing: 2) {
@@ -38,7 +38,7 @@ struct PasswordInput : View {
                 
                 SecureField(
                     "Password",
-                    text: $password
+                    text: $Password
                 )
                 .padding(.horizontal)
                 .textContentType(.password)
@@ -50,8 +50,6 @@ struct PasswordInput : View {
     }
 }
 
-//TODO: add getter of password
-
 #Preview {
-    PasswordInput()
+    
 }

@@ -19,7 +19,7 @@ struct SignInView: View {
                 SignInButton(
                     SignInTitle: "Sign In",
                     CreateUserTitle: "Create Account",
-                    SignIn: signIn,
+                    SignIn: signIn(),
                     CreateUser: goToUserCreation
                 )
             }
@@ -30,14 +30,14 @@ struct SignInView: View {
             )
         }
     }
-}
-
-// SUBVIEWS
-
-private var InputFields : some View {
-    VStack(spacing: 10) {
-        EmailInput()
-        PasswordInput()
+    
+    // SUBVIEWS
+    
+    private var InputFields : some View {
+        VStack(spacing: 10) {
+            EmailInput(Email: $email)
+            PasswordInput(Password: $password)
+        }
     }
 }
 
