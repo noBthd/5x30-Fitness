@@ -41,6 +41,8 @@ struct EmailInput : View {
                     text: $Email
                 )
                 .padding(.horizontal)
+                .autocorrectionDisabled(true)
+                .textInputAutocapitalization(.none)
             }
             .frame(width: 300, height: 56)
 
