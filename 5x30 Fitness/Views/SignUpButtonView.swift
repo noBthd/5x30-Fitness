@@ -36,12 +36,12 @@ struct SignUpButton: View {
 
 //TODO: rplace this func with registration
 func someSignUp() -> Void {
-    print("USER SIGNED IN")
+    print("USER SIGNED UP")
 }
 
 #Preview{
     SignUpButton(
         SignUpTitle: "Sign Up",
-        SignUp: someSignIn
+        SignUp: someSignUp
     )
 }

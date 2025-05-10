@@ -50,19 +50,19 @@ struct SignInButton: View {
 }
 
 //TODO: rplace this func with auth and creating new user
-func someSignIn() -> Void {
-    print("USER SIGNED IN")
-}
-func someUserCreation() -> Void {
-    print("TAB SWITCHED TO CREATE NEW USER")
-}
+//func someSignIn() -> Void {
+//    print("USER SIGNED IN")
+//}
+//func someUserCreation() -> Void {
+//    print("TAB SWITCHED TO CREATE NEW USER")
+//}
 
-#Preview{
-    SignInButton(
-        SignInTitle: "Sign in",
-        CreateUserTitle: "Create Account",
-        SignIn: someSignIn,
-        CreateUser: someUserCreation
-    )
-    
-}
+//#Preview{
+//    SignInButton(
+//        SignInTitle: "Sign in",
+//        CreateUserTitle: "Create Account",
+//        SignIn: someSignIn,
+//        CreateUser: someUserCreation
+//    )
+//    
+//}

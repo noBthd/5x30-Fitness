@@ -11,7 +11,10 @@ import SwiftUI
 struct _x30_FitnessApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SignUpButton(
+                SignUpTitle: "Sign up",
+                SignUp: someSignUp
+            )
         }
     }
 }
