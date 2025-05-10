@@ -52,6 +52,10 @@ struct SignInView: View {
                         size: 12
                     )
                 )
+                .onDisappear() {
+                    email = ""
+                    password = ""
+                }
         }
     }
 }
