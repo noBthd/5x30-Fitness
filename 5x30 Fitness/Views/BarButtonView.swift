@@ -65,6 +65,6 @@ struct BarButton : View {
         pickedImage: "pickedFitImg",
         sectionName: "Fitness",
         picked: true,
-        buttonAction: tmpFunc
+        buttonAction: {}
     )
 }
