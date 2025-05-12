@@ -46,7 +46,8 @@ struct BarButton : View {
                         .font(
                             Font.custom(
                                 "Myanmar Khyay",
-                                size: 8)
+                                size: 8
+                            )
                         )
                         .foregroundColor(Color(buttonColor))
                 }
