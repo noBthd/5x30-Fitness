@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct Bar : View {
+    //TODO: add switching variebles
+    let statButtonActtion: () -> Void
+    let fitButtonAction: () -> Void
+    let someButtonAcion: () -> Void
+    
     
     var body : some View {
         ZStack(alignment: .bottom) {
@@ -33,7 +38,7 @@ struct Bar : View {
                     pickedImage: "pickedStatImg",
                     sectionName: "Statistic",
                     picked: true,
-                    buttonAction: tmpFunc
+                    buttonAction: statButtonActtion
                 )
                 
                 // FITNESS BUTTON
@@ -42,7 +47,7 @@ struct Bar : View {
                     pickedImage: "pickedFitImg",
                     sectionName: "Fitness",
                     picked: false,
-                    buttonAction: tmpFunc
+                    buttonAction: fitButtonAction
                 )
                 
                 // BUTTON
@@ -51,7 +56,7 @@ struct Bar : View {
                     pickedImage: "pickedStatImg",
                     sectionName: "Statistic",
                     picked: false,
-                    buttonAction: tmpFunc
+                    buttonAction: someButtonAcion
                 )
             }
         }
@@ -59,5 +64,9 @@ struct Bar : View {
 }
 
 #Preview {
-    Bar()
+    Bar(
+        statButtonActtion: {},
+        fitButtonAction: {},
+        someButtonAcion: {}
+    )
 }
