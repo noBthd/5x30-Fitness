@@ -10,19 +10,75 @@ import SwiftUI
 struct StatScreenView : View {
     var body : some View {
         VStack() {
-            PageHeader(
-                headerName: "Statistic",
-                action: {}
-            )
-            
-            Spacer()
-            
-            Bar(
-                statButtonActtion: {},
-                fitButtonAction: {},
-                someButtonAcion: {}
-            )
-        }
+            ZStack {
+                ScrollView(.vertical, showsIndicators: false) {
+                    PageHeader(
+                        headerName: "Statistic",
+                        action: {}
+                    )
+                    .padding(.bottom, 20)
+                    
+                    HStack(spacing: 20) {
+                        VStack(spacing: 20) {
+
+                            SmallInfoBlock(
+                                blockTitle: "Test"
+                            )
+                            SmallInfoBlock(
+                                blockTitle: "Test"
+                            )
+                            SmallInfoBlock(
+                                blockTitle: "Test"
+                            )
+                            SmallInfoBlock(
+                                blockTitle: "Test"
+                            )
+                            SmallInfoBlock(
+                                blockTitle: "Test"
+                            )
+                            SmallInfoBlock(
+                                blockTitle: "Test"
+                            )
+                        }
+                        
+                        VStack(spacing: 20) {
+
+                            SmallInfoBlock(
+                                blockTitle: "Test"
+                            )
+                            SmallInfoBlock(
+                                blockTitle: "Test"
+                            )
+                            SmallInfoBlock(
+                                blockTitle: "Test"
+                            )
+                            SmallInfoBlock(
+                                blockTitle: "Test"
+                            )
+                            SmallInfoBlock(
+                                blockTitle: "Test"
+                            )
+                            SmallInfoBlock(
+                                blockTitle: "Test"
+                            )
+                        }
+                    }
+                    .padding(.bottom, 70)
+                    
+                }
+                
+                .frame(
+                    width: 350
+                )
+                
+                    
+                    Bar(
+                        statButtonActtion: {},
+                        fitButtonAction: {},
+                        someButtonAcion: {}
+                    )
+                }
+            }
     }
 }
 

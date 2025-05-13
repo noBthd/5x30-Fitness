@@ -13,7 +13,7 @@ struct PageHeader : View {
     
     var body: some View {
         VStack {
-            HStack(spacing: 213) {
+            HStack(spacing: 130) {
                 DateName(sectionName: headerName)
                 ProfileButton(action: action)
             }

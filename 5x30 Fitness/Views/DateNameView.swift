@@ -35,7 +35,7 @@ struct DateName : View {
                 .foregroundColor(Color.white)
                 .opacity(0.5)
                 .frame(
-                    maxWidth: 116,
+                    maxWidth: 200,
                     maxHeight: 20,
                     alignment: .leading
                 )
@@ -47,7 +47,7 @@ struct DateName : View {
                         size: 20)
                 )
                 .frame(
-                    maxWidth: 116,
+                    maxWidth: 200,
                     maxHeight: 20,
                     alignment: .leading
                 )
