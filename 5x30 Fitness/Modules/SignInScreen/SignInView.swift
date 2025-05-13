@@ -11,11 +11,6 @@ struct SignInView: View {
     @State private var email: String = ""
     @State private var password: String = ""
     
-    init() {
-        self.email = ""
-        self.password = ""
-    }
-    
     var body : some View {
         NavigationStack() {
             VStack(spacing: 25) {
@@ -48,7 +43,7 @@ struct SignInView: View {
                 SignInTitle: "Sign In",
                 SignIn: signIn,
                 Email: $email,
-                Password: $password,
+                Password: $password
             )
             NavigationLink(
                 "Create Account",
@@ -71,5 +66,5 @@ struct SignInView: View {
 // PREVIEWS
 
 #Preview {
-    SignInView()
+//    SignInView()
 }

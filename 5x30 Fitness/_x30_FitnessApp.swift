@@ -9,6 +9,8 @@ import SwiftUI
 
 @main
 struct _x30_FitnessApp: App {
+    @State private var isRegistrated: Bool = false
+    
     var body: some Scene {
         WindowGroup {
             SignInView()
