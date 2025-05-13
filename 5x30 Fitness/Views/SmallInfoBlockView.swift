@@ -41,7 +41,10 @@ struct SmallInfoBlock : View {
                 }
                 
                 Divider()
-                
+                    .frame(
+                        width: 165
+                    )
+                    .padding(.horizontal, -10)
                 //ANY OHTER COMPONENTS
                 Spacer()
             }
@@ -56,6 +59,6 @@ struct SmallInfoBlock : View {
 
 #Preview {
     SmallInfoBlock(
-        blockTitle: "Test"
+        blockTitle: "Bench press"
     )
 }
