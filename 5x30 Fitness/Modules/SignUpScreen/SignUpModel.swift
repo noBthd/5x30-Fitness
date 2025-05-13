@@ -6,9 +6,11 @@
 //
 
 func signUp(
-    _ email: String,
-    _ password: String) -> Void {
-        print("USER SIGNED UP: email: \(email), password: \(password)")
-        
-    
+    _ email:    String,
+    _ password: String,
+    _ isLogged: inout Bool
+) -> Void {
+    print("USER SIGNED UP: email: \(email), password: \(password)")
+    isLogged = true
+    print("IS LOGGED?: \(isLogged)")
 }

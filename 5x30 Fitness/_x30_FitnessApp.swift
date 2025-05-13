@@ -9,11 +9,17 @@ import SwiftUI
 
 @main
 struct _x30_FitnessApp: App {
-    @State private var isRegistrated: Bool = false
+    // MAIN VARs
+    @AppStorage("isLogged") var isLogged = false
+    
     
     var body: some Scene {
         WindowGroup {
-            SignInView()
+            if isLogged {
+                StatScreenView()
+            } else {
+                SignInView()
+            }
         }
     }
 }
