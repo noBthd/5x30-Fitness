@@ -11,12 +11,13 @@ import SwiftUI
 struct _x30_FitnessApp: App {
     // MAIN VARs
     @AppStorage("isLogged") var isLogged = false
-    
+    @AppStorage("pageID") var pageID = 0
     
     var body: some Scene {
         WindowGroup {
             if isLogged {
                 StatScreenView()
+                pageID = 1
             } else {
                 SignInView()
             }
