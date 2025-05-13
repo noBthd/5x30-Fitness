@@ -26,10 +26,7 @@ func githubAuth() -> Void {
 
 func signIn(
     _ email: String,
-    _ password: String,
-    _ path: NavigationPath
+    _ password: String
 ) -> Void {
     print("USER SIGNED IN: email: \(email), password: \(password)")
-    print("PATH: \(path)")
-
 }

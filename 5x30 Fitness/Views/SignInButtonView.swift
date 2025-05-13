@@ -9,10 +9,9 @@ import SwiftUI
 
 struct SignInButton: View {
     let SignInTitle: String
-    let SignIn: (String, String, NavigationPath) -> Void
+    let SignIn: (String, String) -> Void
     @Binding var Email: String
     @Binding var Password: String
-    @Binding var Path: NavigationPath
     
     var body: some View {
         VStack (spacing: 10){
@@ -20,8 +19,7 @@ struct SignInButton: View {
             Button(action: {
                 SignIn(
                     Email,
-                    Password,
-                    Path
+                    Password
                 )
             }) {
                 Text(SignInTitle)
