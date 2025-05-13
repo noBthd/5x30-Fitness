@@ -11,9 +11,17 @@ struct SignInView: View {
     @State private var email: String = ""
     @State private var password: String = ""
     
+    @State private var path: NavigationPath
+    
+    init() {
+        self.email = ""
+        self.password = ""
+        self.path = NavigationPath()
+    }
+    
     var body : some View {
         NavigationStack {
-            VStack(spacing: 25){
+            VStack(spacing: 25) {
                 VStack(spacing: 35) {
                     InputFields
                     
@@ -42,10 +50,14 @@ struct SignInView: View {
             SignInButton(
                 SignInTitle: "Sign In",
                 SignIn: signIn,
-                Email: $email,
-                Password: $password
+                Email: $email,                                                                                                                                      
+                Password: $password,
+                Path: $path
             )
-            NavigationLink("Create Account", destination: SignUpView())
+            NavigationLink(
+                "Create Account",
+                destination: SignUpView()
+            )
                 .font(
                     Font.custom(
                         "Myanmar Khyay",

@@ -5,6 +5,8 @@
 //  Created by Егор Кириченко on 10.05.2025.
 //
 
+import SwiftUI
+
 //TODO: rework this funcs
 func tmpFunc() -> Void {
     print("SOMETHING HAPPENED")
@@ -24,6 +26,10 @@ func githubAuth() -> Void {
 
 func signIn(
     _ email: String,
-    _ password: String) -> Void {
-        print("USER SIGNED IN: email: \(email), password: \(password)")
+    _ password: String,
+    _ path: NavigationPath
+) -> Void {
+    print("USER SIGNED IN: email: \(email), password: \(password)")
+    print("PATH: \(path)")
+
 }

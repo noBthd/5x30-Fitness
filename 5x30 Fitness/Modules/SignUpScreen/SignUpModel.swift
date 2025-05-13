@@ -9,4 +9,6 @@ func signUp(
     _ email: String,
     _ password: String) -> Void {
         print("USER SIGNED UP: email: \(email), password: \(password)")
+        
+    
 }

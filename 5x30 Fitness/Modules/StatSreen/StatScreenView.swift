@@ -66,19 +66,18 @@ struct StatScreenView : View {
                     .padding(.bottom, 70)
                     
                 }
-                
                 .frame(
                     width: 350
                 )
-                
+
                     
-                    Bar(
-                        statButtonActtion: {},
-                        fitButtonAction: {},
-                        someButtonAcion: {}
-                    )
-                }
+                Bar(
+                    statButtonActtion: {},
+                    fitButtonAction: {},
+                    someButtonAcion: {}
+                )
             }
+        }
     }
 }
 
