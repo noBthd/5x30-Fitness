@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct User {
+    @State var username: String = ""
     @State var email: String = ""
-    @State var password: String = ""
+    @State var password: Password
     
     @AppStorage("isLogged") var isLogged = false
 }
