@@ -21,12 +21,14 @@ struct _x30_FitnessApp: App {
     var body: some Scene {
         WindowGroup {
             if isLogged {
-                if pageID == 0 {
+                if pageID == 0 {            // STATISTIC SCREEN
                     StatScreenView()
-                } else if pageID == 1 {
+                } else if pageID == 1 {     // FITNESS SCREEN
                     SignUpView()
-                } else if pageID == 2 {
-                    SignInView()
+                } else if pageID == 2 {     //
+                    ProfileSettingsView()
+                } else if pageID == 3 {     // PROFILE SETTINGS SCREEN
+                    ProfileSettingsView()
                 }
             } else {
                 SignInView()
