@@ -15,8 +15,12 @@ struct _x30_FitnessApp: App {
 //    @AppStorage("user") var user: User
     
     init() {
-        UserDefaults.standard.removeObject(forKey: "isLogged")
+//        UserDefaults.standard.removeObject(forKey: "isLogged") TEST FOR CACHED USER LOGGED
         UserDefaults.standard.removeObject(forKey: "pageID")
+        
+        if(isLogged) {
+            pageID = 0
+        }
     }
     
     var body: some Scene {
