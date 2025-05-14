@@ -26,11 +26,15 @@ func githubAuth() -> Void {
 
 func signIn(
     _ email: String,
-    _ password: String
+    _ password: String,
+    _ isLogged: inout Bool
 ) -> Void {
     print("USER SIGNED IN: email: \(email), password: \(password)")
     
     if (email.isEmpty || password.isEmpty) {
         print("NO EMAIL OR PASSWORD ENTERED")
+        return
     }
+    
+    isLogged = true
 }

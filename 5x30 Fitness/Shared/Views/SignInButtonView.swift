@@ -9,9 +9,11 @@ import SwiftUI
 
 struct SignInButton: View {
     let SignInTitle: String
-    let SignIn: (String, String) -> Void
+    let SignIn: (String, String, inout Bool) -> Void
     @Binding var Email: String
     @Binding var Password: String
+    
+    @AppStorage("isLogged") var isLogged = false
     
     var body: some View {
         VStack (spacing: 10){
@@ -19,7 +21,8 @@ struct SignInButton: View {
             Button(action: {
                 SignIn(
                     Email,
-                    Password
+                    Password,
+                    &isLogged
                 )
             }) {
                 Text(SignInTitle)
