@@ -33,7 +33,9 @@ struct BarButton : View {
     
     var body: some View {
         ZStack(alignment: .leading) {
-            Button(action: buttonAction) {
+            Button(action: {
+                buttonAction()
+            }) {
                 VStack {
                     Image(image)
                         .resizable()
@@ -61,11 +63,11 @@ struct BarButton : View {
 }
 
 #Preview {
-    BarButton(
-        notPickedImage: "fitImg",
-        pickedImage: "pickedFitImg",
-        sectionName: "Fitness",
-        picked: true,
-        buttonAction: {}
-    )
+//    BarButton(
+//        notPickedImage: "fitImg",
+//        pickedImage: "pickedFitImg",
+//        sectionName: "Fitness",
+//        picked: true,
+//        buttonAction: {}
+//    )
 }

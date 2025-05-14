@@ -10,9 +10,8 @@ import SwiftUI
 struct Bar : View {
     //TODO: add switching variebles
     let statButtonActtion: () -> Void
-    let fitButtonAction: () -> Void
-    let someButtonAcion: () -> Void
-    
+    let fitButtonAction:   () -> Void
+    let someButtonAcion:   () -> Void
     
     var body : some View {
         ZStack(alignment: .bottom) {
@@ -64,9 +63,9 @@ struct Bar : View {
 }
 
 #Preview {
-    Bar(
-        statButtonActtion: {},
-        fitButtonAction: {},
-        someButtonAcion: {}
-    )
+//    Bar(
+//        statButtonActtion: {},
+//        fitButtonAction: {},
+//        someButtonAcion: {}
+//    )
 }

@@ -13,11 +13,21 @@ struct _x30_FitnessApp: App {
     @AppStorage("isLogged") var isLogged = false
     @AppStorage("pageID") var pageID = 0
     
+    init() {
+        UserDefaults.standard.removeObject(forKey: "isLogged")
+        UserDefaults.standard.removeObject(forKey: "pageID")
+    }
+    
     var body: some Scene {
         WindowGroup {
             if isLogged {
-                StatScreenView()
-                pageID = 1
+                if pageID == 0 {
+                    StatScreenView()
+                } else if pageID == 1 {
+                    SignUpView()
+                } else if pageID == 2 {
+                    SignInView()
+                }
             } else {
                 SignInView()
             }

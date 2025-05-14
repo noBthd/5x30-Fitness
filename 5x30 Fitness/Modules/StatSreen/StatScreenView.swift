@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct StatScreenView : View {
+    @AppStorage("pageID") var pageID = 0
+    
     var body : some View {
         VStack() {
             ZStack {
@@ -72,9 +74,9 @@ struct StatScreenView : View {
 
                     
                 Bar(
-                    statButtonActtion: {},
-                    fitButtonAction: {},
-                    someButtonAcion: {}
+                    statButtonActtion: { pageID = 0 },
+                    fitButtonAction:   { pageID = 1 },
+                    someButtonAcion:   { pageID = 2 }
                 )
             }
         }
