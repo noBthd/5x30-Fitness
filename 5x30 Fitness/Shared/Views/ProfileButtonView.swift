@@ -11,21 +11,21 @@ struct ProfileButton : View {
     let action: () -> Void
     
     var body: some View {
-        Button(action: action) {
-            ZStack() {
+        NavigationLink(destination: ProfileSettingsView()) {
+            ZStack {
                 Rectangle()
                     .fill(Color.white)
                     .opacity(0.4)
                     .cornerRadius(15)
-        
+
                 Image("user")
                     .resizable()
             }
+            .frame(
+                width: 30,
+                height: 30
+            )
         }
-        .frame(
-            width: 30,
-            height: 30
-        )
     }
 }
 
