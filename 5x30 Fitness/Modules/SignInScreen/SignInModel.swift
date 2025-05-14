@@ -29,4 +29,8 @@ func signIn(
     _ password: String
 ) -> Void {
     print("USER SIGNED IN: email: \(email), password: \(password)")
+    
+    if (email.isEmpty || password.isEmpty) {
+        print("NO EMAIL OR PASSWORD ENTERED")
+    }
 }

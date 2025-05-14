@@ -12,6 +12,7 @@ struct _x30_FitnessApp: App {
     // MAIN VARs
     @AppStorage("isLogged") var isLogged = false
     @AppStorage("pageID") var pageID = 0
+//    @AppStorage("user") var user: User
     
     init() {
         UserDefaults.standard.removeObject(forKey: "isLogged")

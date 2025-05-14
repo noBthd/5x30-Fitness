@@ -10,6 +10,6 @@ import SwiftUI
 struct User {
     @State var email: String = ""
     @State var password: String = ""
-    @
     
+    @AppStorage("isLogged") var isLogged = false
 }
