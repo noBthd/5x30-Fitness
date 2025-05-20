@@ -11,22 +11,24 @@ struct MakeItScreenView : View {
     @AppStorage("pageID") var pageID = 0
     
     var body : some View {
-        VStack {
-            PageHeader(headerName: "Make It")
-                .padding(.bottom, 20)
-                .padding(.horizontal, 15)
-            
-            Spacer()
-            
-            Bar(
-                statButtonActtion: { pageID = 0 },
-                fitButtonAction:   { pageID = 1 },
-                MakeItButtonAcion: { pageID = 2 },
+        NavigationStack {
+            VStack {
+                PageHeader(headerName: "Make It")
+                    .padding(.bottom, 20)
+                    .padding(.horizontal, 15)
                 
-                statPicked: false,
-                fitPicked: false,
-                MakeItPicked: true
-            )
+                Spacer()
+                
+                Bar(
+                    statButtonActtion: { pageID = 0 },
+                    fitButtonAction:   { pageID = 1 },
+                    MakeItButtonAcion: { pageID = 2 },
+                    
+                    statPicked: false,
+                    fitPicked: false,
+                    MakeItPicked: true
+                )
+            }
         }
     }
 }

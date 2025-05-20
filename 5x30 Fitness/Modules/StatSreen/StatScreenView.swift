@@ -10,6 +10,7 @@ import SwiftUI
 struct StatScreenView : View {
     @AppStorage("pageID") var pageID = 0
     
+    //TODO: FIX TOP PADDING
     var body : some View {
         NavigationStack {
             VStack() {

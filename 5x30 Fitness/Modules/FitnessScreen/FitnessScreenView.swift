@@ -11,22 +11,24 @@ struct FitnessScreenView : View {
     @AppStorage("pageID") var pageID = 0
     
     var body : some View {
-        VStack {
-            PageHeader(headerName: "Fitness")
-                .padding(.bottom, 20)
-                .padding(.horizontal, 15)
-            
-            Spacer()
-            
-            Bar(
-                statButtonActtion: { pageID = 0 },
-                fitButtonAction:   { pageID = 1 },
-                MakeItButtonAcion: { pageID = 2 },
+        NavigationStack {
+            VStack {
+                PageHeader(headerName: "Fitness")
+                    .padding(.bottom, 20)
+                    .padding(.horizontal, 15)
                 
-                statPicked: false,
-                fitPicked: true,
-                MakeItPicked: false
-            )
+                Spacer()
+                
+                Bar(
+                    statButtonActtion: { pageID = 0 },
+                    fitButtonAction:   { pageID = 1 },
+                    MakeItButtonAcion: { pageID = 2 },
+                    
+                    statPicked: false,
+                    fitPicked: true,
+                    MakeItPicked: false
+                )
+            }
         }
     }
 }
