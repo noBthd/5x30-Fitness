@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct UserPlate : View {
-    var username: String
-    var email: String
+    @State var username: String
+    @State var email: String
     
     var body: some View {
         ZStack {

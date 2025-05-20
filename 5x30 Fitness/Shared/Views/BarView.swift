@@ -11,7 +11,11 @@ struct Bar : View {
     //TODO: add switching variebles
     let statButtonActtion: () -> Void
     let fitButtonAction:   () -> Void
-    let someButtonAcion:   () -> Void
+    let MakeItButtonAcion:   () -> Void
+    
+    var statPicked: Bool = false
+    var fitPicked: Bool = false
+    var MakeItPicked: Bool = false
     
     var body : some View {
         ZStack(alignment: .bottom) {
@@ -36,7 +40,7 @@ struct Bar : View {
                     notPickedImage: "statImg",
                     pickedImage: "pickedStatImg",
                     sectionName: "Statistic",
-                    picked: true,
+                    picked: statPicked,
                     buttonAction: statButtonActtion
                 )
                 
@@ -45,17 +49,17 @@ struct Bar : View {
                     notPickedImage: "fitImg",
                     pickedImage: "pickedFitImg",
                     sectionName: "Fitness",
-                    picked: false,
+                    picked: fitPicked,
                     buttonAction: fitButtonAction
                 )
                 
                 // BUTTON
                 BarButton(
-                    notPickedImage: "statImg",
-                    pickedImage: "pickedStatImg",
+                    notPickedImage: "makeItImg",
+                    pickedImage: "pickedMakeItImg",
                     sectionName: "Statistic",
-                    picked: false,
-                    buttonAction: someButtonAcion
+                    picked: MakeItPicked,
+                    buttonAction: MakeItButtonAcion
                 )
             }
         }
@@ -63,9 +67,13 @@ struct Bar : View {
 }
 
 #Preview {
-//    Bar(
-//        statButtonActtion: {},
-//        fitButtonAction: {},
-//        someButtonAcion: {}
-//    )
+    Bar(
+        statButtonActtion: {},
+        fitButtonAction: {},
+        MakeItButtonAcion: {},
+    
+        statPicked: false,
+        fitPicked: false,
+        MakeItPicked: false
+    )
 }

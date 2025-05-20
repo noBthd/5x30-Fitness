@@ -1,18 +1,18 @@
 //
-//  FitnessScreenView.swift
+//  MakeItScreen.swift
 //  5x30 Fitness
 //
-//  Created by Егор Кириченко on 14.05.2025.
+//  Created by Егор Кириченко on 20.05.2025.
 //
 
 import SwiftUI
 
-struct FitnessScreenView : View {
+struct MakeItScreenView : View {
     @AppStorage("pageID") var pageID = 0
     
     var body : some View {
         VStack {
-            PageHeader(headerName: "Fitness")
+            PageHeader(headerName: "Make It")
                 .padding(.bottom, 20)
                 .padding(.horizontal, 15)
             
@@ -24,8 +24,8 @@ struct FitnessScreenView : View {
                 MakeItButtonAcion: { pageID = 2 },
                 
                 statPicked: false,
-                fitPicked: true,
-                MakeItPicked: false
+                fitPicked: false,
+                MakeItPicked: true
             )
         }
     }
@@ -33,5 +33,5 @@ struct FitnessScreenView : View {
 
 
 #Preview {
-    FitnessScreenView()
+    MakeItScreenView()
 }

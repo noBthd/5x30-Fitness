@@ -16,8 +16,7 @@ struct StatScreenView : View {
                 ZStack {
                     ScrollView(.vertical, showsIndicators: false) {
                         PageHeader(
-                            headerName: "Statistic",
-                            action: {}
+                            headerName: "Statistic"
                         )
                         .padding(.bottom, 20)
                         
@@ -67,17 +66,22 @@ struct StatScreenView : View {
                             }
                         }
                         .padding(.bottom, 70)
+                        .padding(.horizontal, 5)
                         
                     }
                     .frame(
-                        width: 350
+                        width: 360
                     )
                     
                     
                     Bar(
                         statButtonActtion: { pageID = 0 },
                         fitButtonAction:   { pageID = 1 },
-                        someButtonAcion:   { pageID = 2 }
+                        MakeItButtonAcion: { pageID = 2 },
+                        
+                        statPicked: true,
+                        fitPicked: false,
+                        MakeItPicked: false
                     )
                 }
             }

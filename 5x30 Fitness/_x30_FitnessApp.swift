@@ -29,9 +29,9 @@ struct _x30_FitnessApp: App {
                 if pageID == 0 {            // STATISTIC SCREEN
                     StatScreenView()
                 } else if pageID == 1 {     // FITNESS SCREEN
-                    SignUpView()
-                } else if pageID == 2 {     //
-                    ProfileSettingsView()
+                    FitnessScreenView()
+                } else if pageID == 2 {     // MAKE IT SCREEN
+                    MakeItScreenView()
                 } else if pageID == 3 {     // PROFILE SETTINGS SCREEN
                     ProfileSettingsView()
                 }

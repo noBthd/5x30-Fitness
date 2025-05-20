@@ -9,18 +9,19 @@ import SwiftUI
 
 struct PageHeader : View {
     var headerName: String
-    var action: () -> Void
+    
+    @AppStorage("pageID") var pageID = 0
     
     var body: some View {
         VStack {
             HStack(spacing: 130) {
                 DateName(sectionName: headerName)
-                ProfileButton(action: action)
+                ProfileButton(action: { pageID = 3 })
             }
         }
     }
 }
 
 #Preview {
-    PageHeader(headerName: "Statistic", action: {})
+    PageHeader(headerName: "Statistic")
 }
