@@ -9,25 +9,22 @@ import SwiftUI
 
 struct ProfileSettingsView : View {
     @AppStorage("isLogged") var isLogged = false
+    @AppStorage("username") var username = "username"
+    @AppStorage("email") var email = "test@gmail.com"
     
     var body: some View {
-        VStack(spacing: 10) {
-            Button(action: {
-                userLogout(&isLogged)
-            }) {
-                Text("TEST")
-            }
-            .frame(
-                width: 100,
-                height: 100
+        VStack(spacing: 20) {
+            UserPlate(
+                username: username,
+                email: email
             )
-
-            Rectangle()
-                .fill(Color.white)
-                .frame(
-                    width: 100,
-                    height: 100
-                )
+            
+            ExitAcc(
+                logOutAction: { userLogout($isLogged) },
+                changeAccoutAction: {}
+            )
+            
+            Spacer()
         }
     }
 }

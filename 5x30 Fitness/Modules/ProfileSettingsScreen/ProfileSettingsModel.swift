@@ -5,9 +5,11 @@
 //  Created by Егор Кириченко on 14.05.2025.
 //
 
+import SwiftUI
+
 func userLogout(
-    _ isLogged: inout Bool
+    _ isLogged: Binding<Bool>
 ) -> Void {
     print("USER LOGGED OUT")
-    isLogged = false
+    isLogged.wrappedValue = false
 }
