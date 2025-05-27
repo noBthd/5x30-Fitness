@@ -8,6 +8,10 @@
 import Foundation
 
 struct SignInResponse : Decodable {
-    let token: String
-    let userID: Int
+    let id: String
+    let username: NullableString
+    let email: String
+    let password: String
+    let hashed_password: String?
+    let registration_date: String
 }
