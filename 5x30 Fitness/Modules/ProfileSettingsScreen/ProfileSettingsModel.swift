@@ -11,5 +11,6 @@ func userLogout(
     _ isLogged: Binding<Bool>
 ) -> Void {
     print("USER LOGGED OUT")
+    UserStorage.shared.user = nil
     isLogged.wrappedValue = false
 }

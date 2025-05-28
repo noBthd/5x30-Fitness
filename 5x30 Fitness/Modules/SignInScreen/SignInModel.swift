@@ -47,16 +47,14 @@ func signIn(
     APIClient.shared.request(to: endpoint, responseType: [User].self) { result in
         switch result {
         case .success(let users):
-            print("Signed in successfully")
             if let firstUser = users.first {
-                print("Signed in successfully")
+                print("SIGNED IN SUCCESSFULY")
                 UserStorage.shared.user = firstUser
                 completion(true)
             } else {
-                print("No user found in response")
+                print("NO USER FOUND IN RESPONSE ")
                 completion(false)
             }
-            completion(true)
         case .failure(let error):
             print(error)
             completion(false)

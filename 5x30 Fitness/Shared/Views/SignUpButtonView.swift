@@ -21,6 +21,16 @@ struct SignUpButton: View {
             Button(action: {
                 SignUp(Email, Password) { success in
                     isLogged = success
+                    if success {
+                        getUser(Email) { user in
+                            if let user = user {
+                                print("USER: \(user.email)")
+                                UserStorage.shared.user = user
+                            } else {
+                                print("NO USER FOUND")
+                            }
+                        }
+                    }
                 }
             }) {
                 Text(SignUpTitle)

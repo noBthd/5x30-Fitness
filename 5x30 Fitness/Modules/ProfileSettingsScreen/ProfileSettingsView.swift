@@ -9,14 +9,14 @@ import SwiftUI
 
 struct ProfileSettingsView : View {
     @AppStorage("isLogged") var isLogged = false
-    @AppStorage("username") var username = "username"
-    @AppStorage("email") var email = "test@gmail.com"
+//    @AppStorage("username") var username = "username"
+//    @AppStorage("email") var email = "test@gmail.com"
     
     var body: some View {
         VStack(spacing: 20) {
             UserPlate(
-                username: username,
-                email: email
+                username: UserStorage.shared.user?.username.String ?? "username",
+                email: UserStorage.shared.user?.email ?? "email"
             )
             
             ExitAcc(
@@ -26,6 +26,10 @@ struct ProfileSettingsView : View {
             
             Spacer()
         }
+//        .onAppear {
+//            username = UserStorage.shared.user?.username.String ?? "username"
+//            email = UserStorage.shared.user?.email ?? "test@gmail.com"
+//        }
     }
 }
 

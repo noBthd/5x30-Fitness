@@ -6,26 +6,6 @@
 //
 
 import Foundation
-//
-//func signIn(
-//    _ email: String
-//) -> User {
-//    let queryItems = [
-//        URLQueryItem(name: "email", value: email)
-//    ]
-//
-//    let endpoint = Endpoint(path: "/user", method: .GET, queryItems: queryItems)
-//    
-//    APIClient.shared.request(to: endpoint, responseType: [UserData].self) { result in
-//        switch result {
-//        case .success:
-//            print("USER GETTED")
-//        case .failure(let error):
-//            print(error)
-//            return
-//        }
-//    }
-//}
 
 class UserStorage {
     static let shared = UserStorage()
@@ -46,3 +26,29 @@ class UserStorage {
         }
     }
 }
+
+func getUser(
+    _ email: String,
+    completion: @escaping (User?) -> Void
+) -> Void {
+    let queryItems = [
+        URLQueryItem(name: "email", value: email)
+    ]
+
+    let endpoint = Endpoint(path: "/user", method: .GET, queryItems: queryItems)
+    
+    APIClient.shared.request(to: endpoint, responseType: [User].self) { result in
+        switch result {
+        case .success(let users):
+            if let fUser = users.first {
+                if let encoded = try? JSONEncoder().encode(fUser) {
+                    UserDefaults.standard.set(encoded, forKey: "fUser")
+                }
+            }
+        case .failure(let error):
+            print(error)
+            return
+        }
+    }
+}
+
