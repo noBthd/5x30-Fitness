@@ -27,14 +27,34 @@ func githubAuth() -> Void {
 func signIn(
     _ email: String,
     _ password: String,
-    _ isLogged: inout Bool
+    completion: @escaping (Bool) -> Void
 ) -> Void {
     print("USER SIGNED IN: email: \(email), password: \(password)")
-    
+
     if (email.isEmpty || password.isEmpty) {
         print("NO EMAIL OR PASSWORD ENTERED")
+        completion(false)
         return
     }
     
-    isLogged = true
+    let queryItems = [
+        URLQueryItem(name: "email", value: email),
+        URLQueryItem(name: "password", value: password),
+    ]
+
+    let endpoint = Endpoint(path: "/signIn", method: .GET, queryItems: queryItems)
+    
+    APIClient.shared.request(to: endpoint, responseType: [UserData].self) { result in
+        switch result {
+        case .success:
+            print("Signed in successfully")
+            completion(true)
+        case .failure(let error):
+            print(error)
+            completion(false)
+            return
+        }
+    }
+    
+    
 }

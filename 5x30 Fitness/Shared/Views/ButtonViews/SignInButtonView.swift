@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SignInButton: View {
     let SignInTitle: String
-    let SignIn: (String, String, inout Bool) -> Void
+    let SignIn: (String, String, @escaping (Bool) -> Void) -> Void
     @Binding var Email: String
     @Binding var Password: String
     
@@ -19,11 +19,9 @@ struct SignInButton: View {
         VStack (spacing: 10){
             // SIGN IN BUTTON
             Button(action: {
-                SignIn(
-                    Email,
-                    Password,
-                    &isLogged
-                )
+                SignIn(Email, Password) { success in
+                    isLogged = success
+                }
             }) {
                 Text(SignInTitle)
                     .multilineTextAlignment(.center)
