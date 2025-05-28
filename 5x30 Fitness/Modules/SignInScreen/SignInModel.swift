@@ -46,11 +46,15 @@ func signIn(
     
     APIClient.shared.request(to: endpoint, responseType: [User].self) { result in
         switch result {
-        case .success(let user):
+        case .success(let users):
             print("Signed in successfully")
-            if let encoded = try? JSONEncoder().encode(user) {
-                print("USER ENCODED")
-                UserDefaults.standard.set(encoded, forKey: "user")
+            if let firstUser = users.first {
+                print("Signed in successfully")
+                UserStorage.shared.user = firstUser
+                completion(true)
+            } else {
+                print("No user found in response")
+                completion(false)
             }
             completion(true)
         case .failure(let error):

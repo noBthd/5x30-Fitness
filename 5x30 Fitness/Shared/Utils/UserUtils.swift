@@ -5,7 +5,7 @@
 //  Created by Егор Кириченко on 28.05.2025.
 //
 
-//import Foundation
+import Foundation
 //
 //func signIn(
 //    _ email: String
@@ -26,3 +26,23 @@
 //        }
 //    }
 //}
+
+class UserStorage {
+    static let shared = UserStorage()
+    private let userKey = "user"
+    
+    var user: User? {
+        get {
+            guard let data = UserDefaults.standard.data(forKey: userKey) else { return nil }
+            return try? JSONDecoder().decode(User.self, from: data)
+        }
+        set {
+            if let newValue = newValue {
+                let data = try? JSONEncoder().encode(newValue)
+                UserDefaults.standard.set(data, forKey: userKey)
+            } else {
+                UserDefaults.standard.removeObject(forKey: userKey)
+            }
+        }
+    }
+}
