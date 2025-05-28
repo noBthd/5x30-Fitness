@@ -12,7 +12,6 @@ struct _x30_FitnessApp: App {
     // MAIN VARs
     @AppStorage("isLogged") var isLogged = false
     @AppStorage("pageID") var pageID = 0
-//    @AppStorage("user") var user: User
     
     init() {
 //        UserDefaults.standard.removeObject(forKey: "isLogged") TEST FOR CACHED USER LOGGED
@@ -21,19 +20,6 @@ struct _x30_FitnessApp: App {
         if(isLogged) {
             pageID = 0
         }
-        
-        // TESTED API QUERY
-//        let endpoint = Endpoint(path: "/users", method: .GET)
-//
-//        APIClient.shared.request(to: endpoint, responseType: [UserData].self) { result in
-//            switch result {
-//            case .success(let users):
-//                print(users)
-//            case .failure(let error):
-//                print("Error: \(error)")
-//            }
-//        }
-
     }
     
     var body: some Scene {

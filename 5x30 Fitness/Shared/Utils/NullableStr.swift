@@ -5,7 +5,7 @@
 //  Created by Егор Кириченко on 28.05.2025.
 //
 
-struct NullableString: Decodable {
+struct NullableString : Encodable, Decodable {
     let String: String
     let Valid: Bool
 }

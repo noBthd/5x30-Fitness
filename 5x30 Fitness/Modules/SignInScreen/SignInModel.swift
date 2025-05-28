@@ -44,10 +44,14 @@ func signIn(
 
     let endpoint = Endpoint(path: "/signIn", method: .GET, queryItems: queryItems)
     
-    APIClient.shared.request(to: endpoint, responseType: [UserData].self) { result in
+    APIClient.shared.request(to: endpoint, responseType: [User].self) { result in
         switch result {
-        case .success:
+        case .success(let user):
             print("Signed in successfully")
+            if let encoded = try? JSONEncoder().encode(user) {
+                print("USER ENCODED")
+                UserDefaults.standard.set(encoded, forKey: "user")
+            }
             completion(true)
         case .failure(let error):
             print(error)
@@ -55,6 +59,4 @@ func signIn(
             return
         }
     }
-    
-    
 }

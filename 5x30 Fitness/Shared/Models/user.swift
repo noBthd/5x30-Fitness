@@ -5,10 +5,13 @@
 //  Created by Егор Кириченко on 14.05.2025.
 //
 
-import SwiftUI
+import Foundation
 
-struct User {
-    @State var username: String = ""
-    @State var email: String = ""
-    @State var password: Password
+struct User : Encodable, Decodable {
+    let id: String
+    let username: NullableString
+    let email: String
+    let password: String
+    let hashed_password: String?
+    let registration_date: String
 }
