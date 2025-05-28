@@ -16,11 +16,13 @@ final class APIClient {
     
     func request<T: Decodable>(
         to endpoint: Endpoint,
-        body: Data? = nil,
         responseType: T.Type,
         completion: @escaping (Result<T, Error>) -> Void
     ) {
-        guard let url = URL(string: baseURL + endpoint.path) else {
+        var components = URLComponents(string: baseURL + endpoint.path)
+        components?.queryItems = endpoint.queryItems
+
+        guard let url = components?.url else {
             completion(.failure(APIError.invalidURL))
             return
         }
@@ -28,7 +30,7 @@ final class APIClient {
         var request = URLRequest(url: url)
         request.httpMethod = endpoint.method.rawValue
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpBody = body
+        request.httpBody = endpoint.body
 
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
 
@@ -46,6 +48,7 @@ final class APIClient {
                 let decoded = try JSONDecoder().decode(T.self, from: data)
                 completion(.success(decoded))
             } catch {
+                print("Decoding error: \(error)")
                 completion(.failure(APIError.decodingFailed))
             }
         }
@@ -59,4 +62,3 @@ enum APIError: Error {
     case noData
     case decodingFailed
 }
-

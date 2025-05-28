@@ -10,4 +10,6 @@ import Foundation
 struct Endpoint {
     let path: String
     let method: HTTPMethod
+    var queryItems: [URLQueryItem]? = nil
+    var body: Data? = nil
 }
