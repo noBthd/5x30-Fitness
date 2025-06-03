@@ -21,12 +21,13 @@ struct NameDescInput : View {
                 HStack {
                     Text("Create your train")
                         .frame(
-                            minWidth: 315,
+                            minWidth: 305,
                             minHeight: 15,
                             alignment: .leading
                         )
                         .font(Font.custom("", size: 14))
                         .foregroundStyle(Color.white)
+                        .padding(.leading, 10)
                     
                     Image("arrow")
                         .resizable()
@@ -35,11 +36,12 @@ struct NameDescInput : View {
                             height: 20
                         )
                         .padding(.trailing, -5)
+                        .padding(.trailing, 5)
                 }
                 
                 Divider()
                     .background(Color.white.opacity(0.2))
-                    .padding(.horizontal, -10)
+                    
                 
                 ZStack() {
                     Rectangle()
@@ -50,10 +52,10 @@ struct NameDescInput : View {
                         "train name",
                         text: $TrainName
                     )
-                    .padding(10)
+                    .padding(.horizontal, 10)
                 }
                 .frame(
-                    width: 340,
+                    width: 330,
                     height: 35
                 )
                 
@@ -72,12 +74,11 @@ struct NameDescInput : View {
 
                 }
                 .frame(
-                    width: 340,
+                    width: 330,
                     height: 89
                 )
                 
             }
-            .padding(10)
         }
         .frame(
             width: 350,

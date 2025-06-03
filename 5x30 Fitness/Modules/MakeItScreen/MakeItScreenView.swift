@@ -9,25 +9,59 @@ import SwiftUI
 
 struct MakeItScreenView : View {
     @AppStorage("pageID") var pageID = 0
+    @State var TrainName: String
+    @State var TrainDesc: String
+    @State var TrainTime: String
+    @State var TrainKcal: String
+    @State var TrainDiff: String
+    
+    init() {
+        self.pageID = 0
+        self.TrainName = "TrainName"
+        self.TrainDesc = "TrainDesc"
+        self.TrainTime = "TrainTime"
+        self.TrainKcal = "TrainKcal"
+        self.TrainDiff = "TrainDiff"
+    }
     
     var body : some View {
         NavigationStack {
-            VStack {
-                PageHeader(headerName: "Make It")
-                    .padding(.bottom, 20)
-                    .padding(.horizontal, 15)
-                
-                Spacer()
-                
-                Bar(
-                    statButtonActtion: { pageID = 0 },
-                    fitButtonAction:   { pageID = 1 },
-                    MakeItButtonAcion: { pageID = 2 },
+            VStack() {
+                ZStack(alignment: .top) {
+                    VStack(spacing: 20){
+                        PageHeader(headerName: "Make It")
+                        
+                        NameDescInput(TrainName: TrainName, TrainDesc: TrainDesc)
+
+                        Rectangle()
+                            .fill(Color.white)
+                            .frame(
+                                width: 350,
+                                height: 277
+                            )
+                        
+                        HStack(spacing: 20) {
+                            TrainAdditionalDesc(
+                                time: TrainTime,
+                                kcal: TrainKcal,
+                                diff: TrainDiff
+                            )
+                            
+                            SaveTarinButton(action: {})
+                        }
+                        .frame(width: 350)
+                    }
                     
-                    statPicked: false,
-                    fitPicked: false,
-                    MakeItPicked: true
-                )
+                    Bar(
+                        statButtonActtion: { pageID = 0 },
+                        fitButtonAction:   { pageID = 1 },
+                        MakeItButtonAcion: { pageID = 2 },
+                        
+                        statPicked: false,
+                        fitPicked: false,
+                        MakeItPicked: true
+                    )
+                }
             }
         }
     }

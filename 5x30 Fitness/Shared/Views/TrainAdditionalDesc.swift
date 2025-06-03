@@ -12,12 +12,6 @@ struct TrainAdditionalDesc : View {
     @State var kcal: String
     @State var diff: String
     
-    init() {
-        self.time = ""
-        self.kcal = ""
-        self.diff = ""
-    }
-    
     var body: some View {
         ZStack {
             Rectangle()
@@ -107,5 +101,5 @@ struct TrainAdditionalDesc : View {
 }
 
 #Preview {
-    TrainAdditionalDesc()
+//    TrainAdditionalDesc()
 }
