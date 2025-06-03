@@ -37,5 +37,5 @@ struct SaveTarinButton : View {
 }
 
 #Preview {
-    SaveTarinButton(action: tmpFunc())
+//    SaveTarinButton(action: tmpFunc())
 }
