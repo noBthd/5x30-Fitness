@@ -33,12 +33,13 @@ struct MakeItScreenView : View {
                         
                         NameDescInput(TrainName: TrainName, TrainDesc: TrainDesc)
 
-                        Rectangle()
-                            .fill(Color.white)
-                            .frame(
-                                width: 350,
-                                height: 277
-                            )
+//                        Rectangle()
+//                            .fill(Color.white)
+//                            .frame(
+//                                width: 350,
+//                                height: 277
+//                            )
+                        ExercisePicker()
                         
                         HStack(spacing: 20) {
                             TrainAdditionalDesc(
