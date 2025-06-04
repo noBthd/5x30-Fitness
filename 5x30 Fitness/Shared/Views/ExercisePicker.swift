@@ -90,21 +90,9 @@ struct ExercisePicker : View {
                             .background(Color.white)
                         
                         HStack(spacing: 10){
-                            Rectangle()
-                                .fill(Color.base)
-                                .frame(
-                                    width: 150,
-                                    height: 98
-                                )
-                                .cornerRadius(12)
                             
-                            Rectangle()
-                                .fill(Color.base)
-                                .frame(
-                                    width: 150,
-                                    height: 98
-                                )
-                                .cornerRadius(12)
+                            ExersiceView()
+                            ExersiceView()
                             
                         }
                         .padding(.horizontal, 10)
