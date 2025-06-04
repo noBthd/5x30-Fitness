@@ -8,19 +8,13 @@
 import SwiftUI
 
 struct ExersiceView : View {
-    @State var ExName: String
-    @State var ExDur: String
-    @State var ExReps: String
-    @State var ExRest: String
+    @State var Ex: Exercise
     
     var action: () -> Void
     
-    init() {
-        self.ExName = "ExName"
-        self.ExDur = "ExDur"
-        self.ExReps = "ExReps"
-        self.ExRest = "ExRest"
-        self.action = {}
+    init(Ex: Exercise, action: @escaping () -> Void) {
+        self.Ex = Ex
+        self.action = action
     }
         
     var body : some View {
@@ -36,7 +30,7 @@ struct ExersiceView : View {
             VStack(spacing: 7){
                 VStack(spacing: 6){
                     HStack(spacing: 10) {
-                        Text(ExName)
+                        Text(Ex.Name)
                             .font(Font.custom("", size: 12))
                         
                         Spacer()
@@ -50,6 +44,10 @@ struct ExersiceView : View {
                                 )
                                 .cornerRadius(12)
                         }
+                        .frame(
+                            width: 10,
+                            height: 10
+                        )
                     }
                     .frame(
                         width: 130
@@ -73,7 +71,7 @@ struct ExersiceView : View {
                                 .fill(Color.white.opacity(0.3))
                                 .cornerRadius(12)
                             
-                            Text(ExDur)
+                            Text(Ex.Dur)
                                 .font(Font.custom("", size: 12))
                                 .frame(
                                     maxWidth: 58,
@@ -104,7 +102,7 @@ struct ExersiceView : View {
                                 .fill(Color.white.opacity(0.3))
                                 .cornerRadius(12)
                             
-                            Text(ExReps)
+                            Text(Ex.Reps)
                                 .font(Font.custom("", size: 12))
                                 .frame(
                                     maxWidth: 58,
@@ -135,7 +133,7 @@ struct ExersiceView : View {
                                 .fill(Color.white.opacity(0.3))
                                 .cornerRadius(12)
                             
-                            Text(ExRest)
+                            Text(Ex.Rest)
                                 .font(Font.custom("", size: 12))
                                 .frame(
                                     maxWidth: 58,
@@ -163,5 +161,6 @@ struct ExersiceView : View {
 }
 
 #Preview {
-    ExersiceView()
+//    var ex = Exercise(Name: "", Dur: "", Reps: "", Rest: "")
+//    ExersiceView(Ex: ex, {})
 }

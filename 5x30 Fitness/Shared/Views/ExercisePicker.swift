@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ExercisePicker : View {
+    @StateObject var viewModel = ExerciseViewModel()
+    
     var body: some View {
         ZStack() {
             Rectangle()
@@ -24,14 +26,12 @@ struct ExercisePicker : View {
                             alignment: .leading
                         )
                         .padding(.horizontal, 10)
-//                        .padding(.vertical, 8)
                     
                     Spacer()
                     
                     Image("arrow")
                         .resizable()
                         .frame(width: 20, height: 20)
-//                        .padding(.top, 5)
                         .padding(.trailing, 5)
                     
                 }
@@ -40,7 +40,6 @@ struct ExercisePicker : View {
                 
                 Divider()
                 
-                // TMP
                 ZStack() {
                     Rectangle()
                         .fill(Color.white.opacity(0.3))
@@ -89,12 +88,19 @@ struct ExercisePicker : View {
                         Divider()
                             .background(Color.white)
                         
-                        HStack(spacing: 10){
-                            
-                            ExersiceView()
-                            ExersiceView()
-                            
+
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack(spacing: 10) {
+                                ForEach(viewModel.selectedExercises.indices, id: \.self) { index in
+                                    let exercise = viewModel.selectedExercises[index]
+                                    ExersiceView(Ex: exercise, action: { viewModel.removeExercise(index) })
+                                }
+                            }
                         }
+                        .frame(
+                            height: 108
+                        )
+                        
                         .padding(.horizontal, 10)
                     }
                 }
@@ -104,12 +110,15 @@ struct ExercisePicker : View {
                 )
                 
                 ZStack() {
-                    Rectangle()
-                        .fill(Color.white.opacity(0.3))
-                        .cornerRadius(12)
-                    Text("SAVE")
-                        .foregroundStyle(Color.main)
-
+                    Button(action: { viewModel.appendExercise(1) }) {
+                        ZStack() {
+                            Rectangle()
+                                .fill(Color.white.opacity(0.3))
+                                .cornerRadius(12)
+                            Text("SAVE")
+                                .foregroundStyle(Color.main)
+                        }
+                    }
                 }
                 .frame(
                     width: 330,
