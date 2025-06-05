@@ -84,6 +84,7 @@ struct ExercisePicker : View {
                                 maxHeight: 15,
                                 alignment: .leading
                             )
+                            .font(Font.custom("", size: 14))
                         
                         Divider()
                             .background(Color.white)

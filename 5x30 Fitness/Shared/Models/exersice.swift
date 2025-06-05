@@ -6,6 +6,7 @@
 //
 
 struct Exercise : Encodable, Decodable {
+    var ID: Int
     var Name: String
     var Dur: String
     var Reps: String

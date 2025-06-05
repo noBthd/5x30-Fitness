@@ -34,9 +34,9 @@ class ExerciseViewModel: ObservableObject {
     func loadExersices() -> [Exercise] {
         // tmp logic
         return [
-            Exercise(Name: "Push Ups", Dur: "30s", Reps: "15", Rest: "10s"),
-            Exercise(Name: "Squats", Dur: "45s", Reps: "20", Rest: "15s"),
-            Exercise(Name: "Plank", Dur: "60s", Reps: "1", Rest: "30s")
+            Exercise(ID: 1, Name: "Push Ups", Dur: "30s", Reps: "15", Rest: "10s"),
+            Exercise(ID: 2, Name: "Squats", Dur: "45s", Reps: "20", Rest: "15s"),
+            Exercise(ID: 3, Name: "Plank", Dur: "60s", Reps: "1", Rest: "30s")
         ]
     }
     
