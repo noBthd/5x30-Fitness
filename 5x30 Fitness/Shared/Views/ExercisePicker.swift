@@ -5,10 +5,13 @@
 //  Created by Егор Кириченко on 04.06.2025.
 //
 
+//TODO: FIX REMOVE BUTTON 
+
 import SwiftUI
 
 struct ExercisePicker : View {
     @StateObject var viewModel = ExerciseViewModel()
+    @State var selectedEx: Int? = -1
     
     var body: some View {
         ZStack() {
@@ -18,7 +21,7 @@ struct ExercisePicker : View {
             
             VStack(spacing: 10) {
                 HStack(spacing: 10) {
-                    Text("exersice set")
+                    Text("exercise set")
                         .font(Font.custom("", size: 14))
                         .frame(
                             maxWidth: 165,
@@ -40,37 +43,15 @@ struct ExercisePicker : View {
                 
                 Divider()
                 
-                ZStack() {
-                    Rectangle()
-                        .fill(Color.white.opacity(0.3))
-                        .cornerRadius(12)
-                    HStack(spacing: 10) {
-                        Text("choose exercise")
-                            .frame(
-                                maxWidth: 310,
-                                maxHeight: 15,
-                                alignment: .leading
-                            )
-                            .foregroundStyle(Color.white)
-                            .font(Font.custom("", size: 14))
-                            .padding(.horizontal, 10)
-                        
-                        Spacer()
-                        
-                        Image("arrowWhite")
-                            .resizable()
-                            .rotationEffect(.degrees(90))
-                            .frame(
-                                width: 20,
-                                height: 20
-                            )
-                            .padding(.horizontal, 5)
+                Picker("Exercise", selection: $selectedEx) {
+                    ForEach(viewModel.allExercises, id: \.ID) { item in
+                        Text(item.Name).tag(item.ID)
                     }
                 }
-                .frame(
-                    width: 330,
-                    height: 25
-                )
+                .tint(.main)
+                .frame(width: 330, height: 30)
+                .background(Color.white.opacity(0.3))
+                .cornerRadius(12)
                 
                 ZStack() {
                     Rectangle()
@@ -78,7 +59,7 @@ struct ExercisePicker : View {
                         .cornerRadius(12)
                     
                     VStack() {
-                        Text("exersices")
+                        Text("exercises")
                             .frame(
                                 maxWidth: 310,
                                 maxHeight: 15,
@@ -111,12 +92,16 @@ struct ExercisePicker : View {
                 )
                 
                 ZStack() {
-                    Button(action: { viewModel.appendExercise(1) }) {
+                    Button(action: {
+                        if let id = selectedEx {
+                            viewModel.appendExercise(id - 1)
+                        }
+                    }) {
                         ZStack() {
                             Rectangle()
                                 .fill(Color.white.opacity(0.3))
                                 .cornerRadius(12)
-                            Text("SAVE")
+                            Text("ADD")
                                 .foregroundStyle(Color.main)
                         }
                     }

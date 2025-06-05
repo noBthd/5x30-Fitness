@@ -17,11 +17,11 @@ struct MakeItScreenView : View {
     
     init() {
         self.pageID = 0
-        self.TrainName = "TrainName"
-        self.TrainDesc = "TrainDesc"
-        self.TrainTime = "TrainTime"
-        self.TrainKcal = "TrainKcal"
-        self.TrainDiff = "TrainDiff"
+        self.TrainName = ""
+        self.TrainDesc = ""
+        self.TrainTime = ""
+        self.TrainKcal = ""
+        self.TrainDiff = ""
     }
     
     var body : some View {
@@ -33,12 +33,6 @@ struct MakeItScreenView : View {
                         
                         NameDescInput(TrainName: TrainName, TrainDesc: TrainDesc)
 
-//                        Rectangle()
-//                            .fill(Color.white)
-//                            .frame(
-//                                width: 350,
-//                                height: 277
-//                            )
                         ExercisePicker()
                         
                         HStack(spacing: 20) {
